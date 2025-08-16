@@ -1,0 +1,265 @@
+:root {
+    --background-dark: rgb(33, 33, 33);
+    --background-darker: rgb(25, 25, 25);
+    --background-card: rgb(45, 45, 45);
+    --text-primary: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --accent-primary: #4cc9f0;
+    --accent-secondary: #4361ee;
+    --border-light: rgba(255, 255, 255, 0.1);
+    --transition-speed: 0.3s;
+}
+
+.sidebar {
+    overflow: hidden;
+    min-height: 100vh;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--background-darker);
+    padding: 25px 15px;
+    border-right: 1px solid var(--border-light);
+    transition: all var(--transition-speed) ease;
+    width: 82px;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.sidebar.extended {
+    width: 260px;
+}
+
+.sidebar img {
+    width: 24px;
+    transition: all 0.2s ease;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .menu {
+    cursor: pointer;
+    padding: 10px;
+    width: 60px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sidebar .menu:hover {
+    transform: scale(1.05);
+}
+
+.sidebar .new-chat {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background-color: rgba(76, 201, 240, 0.1);
+    border-radius: 50px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border: 1px solid rgba(76, 201, 240, 0.2);
+    transition: all var(--transition-speed) ease;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.sidebar .new-chat:hover {
+    background-color: rgba(76, 201, 240, 0.2);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 201, 240, 0.2);
+}
+
+.sidebar .recent {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    flex: 1;
+    padding-right: 5px;
+    /* Space for scrollbar */
+    max-height: calc(100vh - 350px);
+    /* Prevent overflow */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sidebar .recent-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 15px;
+    flex-shrink: 0;
+    /* Prevent title from scrolling */
+}
+
+.sidebar .recent-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.sidebar .recent-entry:hover {
+    background-color: rgba(76, 201, 240, 0.1);
+    transform: translateX(5px);
+}
+
+.sidebar .recent-entry p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.sidebar .bottom {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border-light);
+    padding-top: 20px;
+    gap: 8px;
+    animation: fadeIn 0.4s ease;
+    margin-bottom: 20px;
+    /* Added space at bottom */
+}
+
+.sidebar .bottom-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sidebar .bottom-item:hover {
+    background-color: rgba(76, 201, 240, 0.1);
+    color: var(--text-primary);
+    transform: translateX(3px);
+}
+
+.sidebar .bottom-item p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 20px 10px;
+    }
+
+    .sidebar.extended {
+        width: 240px;
+    }
+
+    .sidebar img {
+        width: 20px;
+    }
+
+    .sidebar .new-chat {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .sidebar .recent-entry,
+    .sidebar .bottom-item {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 60px;
+        padding: 15px 8px;
+    }
+
+    .sidebar.extended {
+        width: 220px;
+    }
+
+    .sidebar .menu {
+        padding: 8px;
+    }
+
+    .sidebar .new-chat {
+        padding: 8px 10px;
+    }
+
+    .recent-title {
+        font-size: 13px;
+    }
+}
+
+/* Scrollbar styling */
+.recent::-webkit-scrollbar {
+    width: 6px;
+}
+
+.recent::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.recent::-webkit-scrollbar-thumb {
+    background: var(--background-card);
+    border-radius: 3px;
+}
+
+.recent::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+}
+
+.top-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    /* Important for scroll containment */
+}
+
+.recent-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    /* Contain the scrolling area */
+    margin-top: 30px;
+}

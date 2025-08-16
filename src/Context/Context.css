@@ -1,0 +1,177 @@
+/* Text formatting styles */
+.heading-1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.heading-2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 1.3rem 0;
+    color: #34495e;
+}
+
+.heading-3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 1.1rem 0;
+    color: #3d566e;
+}
+
+.heading-4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 1rem 0;
+    color: #446688;
+}
+
+.heading-5,
+.heading-6 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0.8rem 0;
+    color: #4a77a8;
+}
+
+p {
+    margin: 0.8rem 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+strong {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+em {
+    font-style: italic;
+    color: #555;
+}
+
+/* Lists */
+.numbered-list,
+.bullet-list {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    line-height: 1.6;
+}
+
+.numbered-list li {
+    margin: 0.5rem 0;
+}
+
+.bullet-list li {
+    margin: 0.5rem 0;
+    list-style-type: disc;
+}
+
+/* Code blocks */
+.code-block {
+    background: #282c34;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #1e2227;
+    color: #abb2bf;
+    font-size: 0.9rem;
+}
+
+.language-tag {
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+.copy-button {
+    background: #61afef;
+    color: #282c34;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.copy-button:hover {
+    background: #528bff;
+}
+
+pre {
+    margin: 0;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #abb2bf;
+}
+
+.inline-code {
+    background: #f0f0f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #c7254e;
+    font-size: 0.9em;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #61afef;
+    background: #f8f9fa;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: #555;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+/* Special boxes */
+.note-box {
+    background: #e7f5ff;
+    border-left: 4px solid #4dabf7;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.warning-box {
+    background: #fff3bf;
+    border-left: 4px solid #ffd43b;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.tip-box {
+    background: #ebfbee;
+    border-left: 4px solid #40c057;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    height: 1px;
+    background: #eee;
+    margin: 1.5rem 0;
+}
