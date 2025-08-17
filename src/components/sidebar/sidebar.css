@@ -180,14 +180,14 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .sidebar {
         width: 70px;
         padding: 20px 10px;
     }
 
     .sidebar.extended {
-        width: 240px;
+        width: 100px;
     }
 
     .sidebar img {
@@ -206,14 +206,14 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
     .sidebar {
         width: 60px;
         padding: 15px 8px;
     }
 
     .sidebar.extended {
-        width: 220px;
+        width: 100px;
     }
 
     .sidebar .menu {

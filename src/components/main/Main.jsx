@@ -107,7 +107,7 @@ export const Main = () => {
                         type="text"
                         placeholder='Enter a prompt here'
                     />
-                    <div
+                    <div className='search-icons'
                         onKeyDown={(e) => {
                             // Trigger onSent when Enter is pressed and input exists
                             if (e.key === 'Enter' && input) {
@@ -116,14 +116,11 @@ export const Main = () => {
                             }
                         }}
                     >
-                        <img src={assets.gallery_icon} alt="Attach file" />
-                        <img src={assets.mic_icon} alt="Voice input" />
                         {input ? (
-                            <img
+                            <img className='send-button'
                                 onClick={() => onSent()}
                                 src={assets.send_icon}
                                 alt="Send"
-                                style={{ cursor: "pointer" }}
                             />
                         ) : null}
                     </div>
