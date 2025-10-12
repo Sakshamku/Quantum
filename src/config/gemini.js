@@ -6,7 +6,7 @@ const genAI = new GoogleGenerativeAI(apiKey);
 // Use faster model (gemini-1.5-flash) and enable streaming optimization
 async function generate(prompt) {
     const model = genAI.getGenerativeModel({
-        model: "gemini-1.5-flash",  // Faster response model
+        model: "gemini-2.5-flash",  // Faster response model
         generationConfig: { maxOutputTokens: 2048 }  // Limit response length
     });
 
