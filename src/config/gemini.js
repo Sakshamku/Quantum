@@ -1,22 +1,48 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { OpenRouter } from "@openrouter/sdk";
 
-const apiKey = "AIzaSyBKWFsppSLCL1uNBFnLlD7T4JckUUmGkNQ";
-const genAI = new GoogleGenerativeAI(apiKey);
+const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || "";
 
-// Use faster model (gemini-1.5-flash) and enable streaming optimization
+if (!apiKey) {
+    console.error("VITE_OPENROUTER_API_KEY is missing. Create a .env file at project root with this variable and restart Vite.");
+    // Optional: disable API calls safely rather than failing silently
+}
+
+console.log("API Key:", apiKey ? "Loaded" : "Not loaded");
+
+const openRouter = new OpenRouter({
+    apiKey,
+    defaultHeaders: {
+        "HTTP-Referer": window.location.origin,
+        "X-OpenRouter-Title": "My AI App",
+    },
+});
+
 async function generate(prompt) {
-    const model = genAI.getGenerativeModel({
-        model: "gemini-2.5-flash",  // Faster response model
-        generationConfig: { maxOutputTokens: 2048 }  // Limit response length
-    });
+    try {
+        const completion = await openRouter.chat.send({
+            chatGenerationParams: {
+                model: "meta-llama/llama-3-8b-instruct",
+                messages: [
+                    {
+                        role: "user",
+                        content: prompt,
+                    },
+                ],
+                maxTokens: 512,
+                temperature: 0.7,
+                stream: false,
+            },
+        });
 
-    const result = await model.generateContentStream({
-        contents: [{ role: "user", parts: [{ text: prompt }] }]
-    });
+        if (completion?.choices?.length > 0) {
+            return completion.choices[0].message?.content || "";
+        }
 
-    return result.stream;  // Return raw stream directly
+        return "";
+    } catch (error) {
+        console.error("API call failed:", error);
+        return "Error generating response";
+    }
 }
 
 export default generate;
-
-

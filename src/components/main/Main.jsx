@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import './Main.css'
 import { assets } from '../../assets/assets'
-import { Context } from '../../Context/Context'
+import { Context } from '../../Context/ContextStore'
 
 
 export const Main = () => {

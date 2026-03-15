@@ -1,8 +1,7 @@
-import { createContext, useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { Context } from "./ContextStore";
 import runChat from "../config";
 import DOMPurify from "dompurify";
-
-export const Context = createContext();
 
 const ContextProvider = (props) => {
     const [input, setInput] = useState("");
